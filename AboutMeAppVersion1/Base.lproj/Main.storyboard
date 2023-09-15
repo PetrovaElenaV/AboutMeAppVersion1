@@ -44,7 +44,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="UserCheckButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="RrV-Yy-EvP"/>
+                                            <action selector="userCheckButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="RrV-Yy-EvP"/>
                                             <segue destination="WHq-ES-6V0" kind="presentation" id="u28-l5-b2q"/>
                                         </connections>
                                     </button>
@@ -60,7 +60,7 @@
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="ForgotUserNameButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="3jO-ob-yQD"/>
+                                            <action selector="forgotUserNameButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="3jO-ob-yQD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1QH-yi-lJS">
@@ -70,7 +70,7 @@
                                             <fontDescription key="titleFontDescription" style="UICTFontTextStyleCaption2"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="ForgotPasswordButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="hiI-ub-68q"/>
+                                            <action selector="forgotPasswordButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="hiI-ub-68q"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -82,7 +82,6 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nsp-Ra-XMc" secondAttribute="trailing" constant="20" id="B6Z-mi-0pf"/>
                             <constraint firstItem="Nsp-Ra-XMc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Bzc-zM-jJW"/>
                             <constraint firstItem="fFW-1i-uKJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="CTn-B9-FnN"/>
-                            <constraint firstItem="fFW-1i-uKJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CdJ-U7-AZB"/>
                             <constraint firstItem="Nsp-Ra-XMc" firstAttribute="top" secondItem="fFW-1i-uKJ" secondAttribute="bottom" constant="20" id="KB0-KS-inN"/>
                             <constraint firstItem="fFW-1i-uKJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="ljN-X2-N4x"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fFW-1i-uKJ" secondAttribute="trailing" constant="40" id="oEG-Fa-AfM"/>
@@ -143,7 +142,7 @@
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="0ZY-er-OpR" kind="unwind" unwindAction="LogOutButtonFor:" id="YCK-CQ-TGs"/>
+                                    <segue destination="0ZY-er-OpR" kind="unwind" unwindAction="logOutButtonFor:" id="Hks-18-ASm"/>
                                 </connections>
                             </button>
                         </subviews>

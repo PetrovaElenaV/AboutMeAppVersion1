@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 final class LoginViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -17,8 +16,8 @@ final class LoginViewController: UIViewController {
     @IBOutlet var nameButton: UIButton!
     @IBOutlet var passwordButton: UIButton!
     
-    // MARK: - Public Properties
-    let checkUsers = ["User": "123"]
+    // MARK: - Private Properties
+    private let checkUsers = ["User": "123"]
     
     // MARK: - Override Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -27,25 +26,25 @@ final class LoginViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
     // MARK: - IB Actions
-    @IBAction func ForgotUserNameButton() {
+    @IBAction func forgotUserNameButton() {
         showAlert(withTitle: "Oops!⛔️", andMassage: "Your name is ✓ User")
     }
     
-    @IBAction func ForgotPasswordButton() {
+    @IBAction func forgotPasswordButton() {
         showAlert(withTitle: "Oops! 📛 ", andMassage: " Your password is ✓ 123")
     }
     
-    @IBAction func LogOutButton(for segue: UIStoryboardSegue) {
-        guard segue.source is WelcomeViewController else { return }
+    @IBAction func logOutButton(for segue: UIStoryboardSegue) {
         nameTextField.text = ""
         passwordTextField.text = ""
     }
     
-    @IBAction func UserCheckButton() {
+    @IBAction func userCheckButton() {
         for (username, password)  in checkUsers {
             if username != nameTextField.text || password != passwordTextField.text {
                 showAlert(withTitle: "🥹 Invalid login or password", andMassage: "🤝 Please, enter correct login and password")
