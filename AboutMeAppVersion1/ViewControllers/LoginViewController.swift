@@ -14,10 +14,16 @@ final class LoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     
     // MARK: - Private Properties
-    private let user = "1"
-    private let password = "1"
+    private let user = "User"
+    private let password = "123"
     
     // MARK: - Override Methods
+    
+    override func viewDidLoad() {
+        userNameTextField.text = user
+        passwordTextField.text = password
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
         welcomeVC.user = user
@@ -48,8 +54,8 @@ final class LoginViewController: UIViewController {
     }
     
     @IBAction func unwindSegue(for segue: UIStoryboardSegue) {
-        userNameTextField.text = ""
-        passwordTextField.text = ""
+        userNameTextField.text = user
+        passwordTextField.text = password
     }
     
     // MARK: - UIAlertControllers
