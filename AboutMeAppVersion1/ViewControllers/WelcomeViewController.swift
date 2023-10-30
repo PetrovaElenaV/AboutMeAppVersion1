@@ -9,11 +9,13 @@ import UIKit
 
 final class WelcomeViewController: UIViewController {
     
+    // MARK: - IBOutlets
     @IBOutlet var userLabel: UILabel!
     
-    private let myName = "Елена Петрова"
+    // MARK: - Properties
+    public var user = ""
     
-    var user = ""
+    private var myName = Person.getPerson
     
     private let primaryColor = UIColor(
         displayP3Red: 64/255,
@@ -28,10 +30,11 @@ final class WelcomeViewController: UIViewController {
         alpha: 1
     )
     
+    // MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addVerticalGradientLayer(topColor: primaryColor, bottomColor: secondaryColor)
-        userLabel.text = "\(user) \r Давай познакомимся,\r меня зовут\r \(myName) "
+        userLabel.text = "\(user) \r Давай познакомимся,\r меня зовут\r \(myName.fullName) "
     }
 }
 // MARK: - Set background color

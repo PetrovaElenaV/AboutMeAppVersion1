@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 final class LoginViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -14,19 +13,30 @@ final class LoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     
     // MARK: - Private Properties
-    private let user = "User"
-    private let password = "123"
+    private var userName = Users.client
+    private let passwordName = Users.client
+    private let person = Person.getPerson
     
     // MARK: - Override Methods
     
     override func viewDidLoad() {
-        userNameTextField.text = user
-        passwordTextField.text = password
+        userNameTextField.text = userName.user
+        passwordTextField.text = passwordName.password
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.user = user
+        guard let welcomeVC = segue.destination as? UITabBarController else { return }
+        guard let viewControllers = welcomeVC.viewControllers else { return }
+        viewControllers.forEach { viewController in
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.user = userName.user
+            } else if let navController = viewController as? UINavigationController {
+                guard let infoVC = navController.topViewController as? InfoViewController else { return }
+                infoVC.person = person
+            } else if let favouritesVC = viewController as? FavouritesViewController {
+                favouritesVC.nameDogs = person
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -36,7 +46,7 @@ final class LoginViewController: UIViewController {
     
     // MARK: - IB Actions
     @IBAction func logInPressed() {
-        guard userNameTextField.text == user, passwordTextField.text == password else {
+        guard userNameTextField.text == userName.user, passwordTextField.text == passwordName.password else {
             showAlert(
                 title: "🥹 Invalid login or password",
                 message: "🤝 Please, enter correct login and password",
@@ -49,13 +59,13 @@ final class LoginViewController: UIViewController {
     
     @IBAction func forgotRegisterData(_ sender: UIButton) {
         sender.tag == 0
-        ? showAlert(title: "Oops!⛔️", message: "Your name is ✓ \(user)")
-        : showAlert(title: "Oops! 📛 ", message: " Your password is ✓ \(password)")
+        ? showAlert(title: "Oops!⛔️", message: "Your name is ✓ \(userName.user)")
+        : showAlert(title: "Oops! 📛 ", message: " Your password is ✓ \(passwordName.password)")
     }
     
     @IBAction func unwindSegue(for segue: UIStoryboardSegue) {
-        userNameTextField.text = user
-        passwordTextField.text = password
+        userNameTextField.text = userName.user
+        passwordTextField.text = passwordName.password
     }
     
     // MARK: - UIAlertControllers
